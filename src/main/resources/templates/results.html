@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="/resources/css/styles.css">
+</head>
+<body>
+    <h1>Search Results</h1>
+
+    <a href="/search">Back to Search</a>
+
+    <div th:if="${products != null and !#lists.isEmpty(products)}">
+        <h2>Results Found:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Product Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Brand</th>
+                    <th>Category</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="product : ${products}">
+                    <td th:text="${product.id}">1</td>
+                    <td th:text="${product.productName}">Product Name</td>
+                    <td th:text="${product.description}">Description</td>
+                    <td th:text="${product.price}">Price</td>
+                    <td th:text="${product.brand.brandName}">Brand</td>
+                    <td th:text="${product.category.categoryName}">Category</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div th:if="${products == null or #lists.isEmpty(products)}">
+        <p>No results found for your search criteria.</p>
+    </div>
+
+    <footer>
+        <p>&copy; Phone Sales</p>
+    </footer>
+</body>
+</html>
