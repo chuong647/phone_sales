@@ -18,16 +18,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `phone_sales`
+-- Cơ sở dữ liệu: `phone_sale`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `brands`
+-- Cấu trúc bảng cho bảng `brand`
 --
 
-CREATE TABLE `brands` (
+CREATE TABLE `brand` (
   `id` int(11) NOT NULL,
   `brand_name` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -36,7 +36,7 @@ CREATE TABLE `brands` (
 -- Đang đổ dữ liệu cho bảng `brands`
 --
 
-INSERT INTO `brands` (`id`, `brand_name`) VALUES
+INSERT INTO `brand` (`id`, `brand_name`) VALUES
 (1, 'Apple'),
 (2, 'Samsung'),
 (3, 'Google'),
@@ -52,7 +52,7 @@ INSERT INTO `brands` (`id`, `brand_name`) VALUES
 -- Cấu trúc bảng cho bảng `categories`
 --
 
-CREATE TABLE `categories` (
+CREATE TABLE `category` (
   `id` int(11) NOT NULL,
   `category_name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -61,7 +61,7 @@ CREATE TABLE `categories` (
 -- Đang đổ dữ liệu cho bảng `categories`
 --
 
-INSERT INTO `categories` (`id`, `category_name`) VALUES
+INSERT INTO `category` (`id`, `category_name`) VALUES
 (1, 'Điện thoại thông minh'),
 (2, 'Điện thoại phổ thông'),
 (3, 'Máy tính bảng'),
@@ -71,10 +71,10 @@ INSERT INTO `categories` (`id`, `category_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `products`
+-- Cấu trúc bảng cho bảng `product`
 --
 
-CREATE TABLE `products` (
+CREATE TABLE `product` (
   `id` int(11) NOT NULL,
   `product_name` varchar(100) NOT NULL,
   `description` text DEFAULT NULL,
@@ -84,10 +84,10 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `products`
+-- Đang đổ dữ liệu cho bảng `product`
 --
 
-INSERT INTO `products` (`id`, `product_name`, `description`, `price`, `brand_id`, `category_id`) VALUES
+INSERT INTO `product` (`id`, `product_name`, `description`, `price`, `brand_id`, `category_id`) VALUES
 (1, 'iPhone 13', 'Điện thoại thông minh hàng đầu mới nhất của Apple', 99900.00, 1, 1),
 (2, 'Samsung Galaxy S22', 'Điện thoại thông minh Android cao cấp của Samsung', 79900.00, 2, 1),
 (3, 'Google Pixel 6', 'Điện thoại thông minh Android có tính năng camera tiên tiến', 69900.00, 3, 1),
@@ -106,19 +106,19 @@ INSERT INTO `products` (`id`, `product_name`, `description`, `price`, `brand_id`
 --
 -- Chỉ mục cho bảng `brands`
 --
-ALTER TABLE `brands`
+ALTER TABLE `brand`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Chỉ mục cho bảng `categories`
 --
-ALTER TABLE `categories`
+ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `products`
+-- Chỉ mục cho bảng `product`
 --
-ALTER TABLE `products`
+ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -126,21 +126,21 @@ ALTER TABLE `products`
 --
 
 --
--- AUTO_INCREMENT cho bảng `brands`
+-- AUTO_INCREMENT cho bảng `brand`
 --
-ALTER TABLE `brands`
+ALTER TABLE `brand`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT cho bảng `categories`
+-- AUTO_INCREMENT cho bảng `category`
 --
-ALTER TABLE `categories`
+ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT cho bảng `products`
+-- AUTO_INCREMENT cho bảng `product`
 --
-ALTER TABLE `products`
+ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
